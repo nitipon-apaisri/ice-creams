@@ -12,7 +12,7 @@ router.put("/tastes", tastesController.addTaste);
 router.get("/combinations", combinationController.getAllCombinations);
 router.get("/combinations/:id", combinationController.getCombinationById);
 router.post("/combinations", combinationController.postCombination);
-router.post("/combinations/:combinationId", taste_combination.tasteCombination);
+router.put("/combinations/:combinationId", taste_combination.tasteCombination);
 //User
 router.post("/user_vote", userVoteController.userVote);
 
