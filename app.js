@@ -36,8 +36,14 @@ db.serialize(() => {
       `CREATE TABLE "user_vote" (
              "id"	INTEGER,
              "email"	TEXT NOT NULL UNIQUE,
-             "combinationId"	INTEGER NOT NULL UNIQUE,
+             "combinationId"	INTEGER NOT NULL,
               PRIMARY KEY("id" AUTOINCREMENT)
               )`
    );
+   db.run("DROP TABLE IF EXISTS combinations");
+   db.run(`CREATE TABLE "combinations" (
+      "id"	INTEGER,
+      "name"	TEXT NOT NULL UNIQUE,
+      PRIMARY KEY("id" AUTOINCREMENT)
+   )`);
 });
