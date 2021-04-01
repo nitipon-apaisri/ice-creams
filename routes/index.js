@@ -7,6 +7,7 @@ const userVoteController = require("../controller/user_voteController");
 
 //Tastes
 router.get("/tastes", tastesController.getTastes);
+router.put("/tastes", tastesController.addTaste);
 //Combinations
 router.get("/combinations", combinationController.getAllCombinations);
 router.get("/combinations/:id", combinationController.getCombinationById);

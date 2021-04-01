@@ -12,4 +12,25 @@ function getTastes() {
    });
 }
 
-module.exports = { getTastes };
+function addTaste(taste) {
+   return new Promise((resolve, reject) => {
+      db.run(`INSERT INTO tastes (taste) VALUES (?)`, [taste], function (err) {
+         if (err) {
+            reject(err);
+         } else {
+            db.get(
+               `SELECT * FROM tastes WHERE id = ?`,
+               [this.lastID],
+               function (err, row) {
+                  if (err) {
+                     reject(err);
+                  } else {
+                     resolve(row);
+                  }
+               }
+            );
+         }
+      });
+   });
+}
+module.exports = { getTastes, addTaste };
